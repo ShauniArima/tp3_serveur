@@ -4,13 +4,13 @@ import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.logging.LoggingFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 
-import infrastructure.jaxrs.AdapterServeurReponsesPOSTCreated;
+import infrastructure.jaxrs.AdapterServeurReponsesPOSTEnCreated;
+import infrastructure.jaxrs.AdapterServeurReponsesPUTOptionEn404OuValeur;
+import modele.ImplemPortail;
 import infrastructure.jaxrs.AdapterServeurReponsesGETNullEn404;
-import modele.ImplemBibliotheque;
-import modele.ImplemLivre;
 
-public class Service extends ResourceConfig {
-	public Service(){
+public class ServicePortail extends ResourceConfig {
+	public ServicePortail(){
 		System.out.println("* Chargement de " + this.getClass() + " ...");
 		System.out.println("** Configuration");
 		this.register(LoggingFeature.class); 
@@ -20,17 +20,14 @@ public class Service extends ResourceConfig {
 		// Adaptateurs JAXB
 		this.register(infrastructure.jaxb.FournisseurTraduction.class);
 		
-
-		// Ressource
-		this.register(ImplemBibliotheque.class);
-		// Sous-ressources
-		this.register(ImplemLivre.class);
-		
+		// Ressource : un portail
+		this.register(ImplemPortail.class);
 	
 		System.out.println("** Enregistrement des filtres ");
 		// Enregistrement des filtres (alternative possible via providers)
-		this.register(AdapterServeurReponsesPOSTCreated.class);
+		this.register(AdapterServeurReponsesPOSTEnCreated.class);
 		this.register(AdapterServeurReponsesGETNullEn404.class);
+		this.register(AdapterServeurReponsesPUTOptionEn404OuValeur.class);
 		System.out.println("* Fin du chargement de " + this.getClass());
 	}
 }

@@ -2,7 +2,7 @@ package infrastructure.jaxrs;
 
 import java.io.IOException;
 
-import infrastructure.jaxrs.annotations.ReponsesPOSTCreated;
+import infrastructure.jaxrs.annotations.ReponsesPOSTEnCreated;
 
 import javax.annotation.Priority;
 import javax.ws.rs.Priorities;
@@ -14,10 +14,10 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.Provider;
 
 @Provider
-@ReponsesPOSTCreated
+@ReponsesPOSTEnCreated
 @Priority(Priorities.HEADER_DECORATOR)
-public class AdapterServeurReponsesPOSTCreated implements ContainerResponseFilter {
-	public AdapterServeurReponsesPOSTCreated() {
+public class AdapterServeurReponsesPOSTEnCreated implements ContainerResponseFilter {
+	public AdapterServeurReponsesPOSTEnCreated() {
 		System.out.println("** Initialisation du filtre de type "
 				+ this.getClass());
 	}

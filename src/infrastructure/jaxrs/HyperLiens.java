@@ -1,5 +1,6 @@
 package infrastructure.jaxrs;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlElement;
@@ -11,6 +12,7 @@ public class HyperLiens<T> {
 	private List<HyperLien<T>> liens;
 
 	public HyperLiens() {
+		liens = new LinkedList<>();
 	}
 
 	public HyperLiens(List<HyperLien<T>> l) {

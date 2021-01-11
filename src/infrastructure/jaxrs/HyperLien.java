@@ -12,6 +12,22 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="hyperlien")
 public class HyperLien <T>{
 	
+/*	public static <T> HyperLien<T> defaut404() {
+		return new HyperLien<>("http://404");
+	}
+	
+	public static <T> boolean valide(HyperLien<T> h) {
+		return !h.toString().equals(defaut404().toString());
+	}
+	
+	public static boolean fictif(Object obj) {
+		if(obj instanceof HyperLien<?>) {
+			HyperLien<?> h = (HyperLien<?>)obj;
+			return !valide(h);
+		}
+		return false;
+	}
+	*/
 	private URI uri;
 	
 	public HyperLien(URI uri, Class<?> typeRessource){

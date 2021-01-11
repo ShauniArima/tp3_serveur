@@ -2,7 +2,7 @@ package infrastructure.jaxrs;
 
 import java.io.IOException;
 
-import infrastructure.jaxrs.annotations.ReponsesGETNull404;
+import infrastructure.jaxrs.annotations.ReponsesGETNullEn404;
 
 import javax.annotation.Priority;
 import javax.ws.rs.Priorities;
@@ -14,7 +14,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.Provider;
 
 @Provider
-@ReponsesGETNull404
+@ReponsesGETNullEn404
 @Priority(Priorities.HEADER_DECORATOR)
 public class AdapterServeurReponsesGETNullEn404 implements ContainerResponseFilter {
 	public AdapterServeurReponsesGETNullEn404() {
