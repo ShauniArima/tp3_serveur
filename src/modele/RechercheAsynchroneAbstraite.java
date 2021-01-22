@@ -18,17 +18,16 @@ import configuration.JAXRS;
 
 public abstract class RechercheAsynchroneAbstraite implements AlgorithmeRecherche {
 
-	protected Future<Optional<HyperLien<Livre>>> rechercheAsync(HyperLien<Bibliotheque> h, Livre l, Client client){
+	protected Future<Optional<HyperLien<Livre>>> rechercheAsync(HyperLien<Bibliotheque> h, Livre l, Client client) {
 		URI uri = UriBuilder.fromUri(h.getUri()).path(JAXRS.SOUSCHEMIN_ASYNC).build();
 		WebTarget target = client.target(uri);
 		return target.request().async().put(Entity.entity(l, JAXRS.TYPE_MEDIA), Types.typeRetourChercherAsync());
 	};
 
-	protected Future<Optional<HyperLien<Livre>>> rechercheAsyncAvecRappel(
-			HyperLien<Bibliotheque> h, Livre l, Client client,  
-			InvocationCallback<Optional<HyperLien<Livre>>> retour){
+	protected Future<Optional<HyperLien<Livre>>> rechercheAsyncAvecRappel(HyperLien<Bibliotheque> h, Livre l,
+			Client client, InvocationCallback<Optional<HyperLien<Livre>>> retour) {
 		URI uri = UriBuilder.fromUri(h.getUri()).path(JAXRS.SOUSCHEMIN_ASYNC).build();
 		WebTarget target = client.target(uri);
-		return target.request().async().method("PUT", Entity.entity(l, JAXRS.TYPE_MEDIA), Types.typeRetourChercherAsync());
+		return target.request().async().put(Entity.entity(l, JAXRS.TYPE_MEDIA), retour);
 	}
 }
