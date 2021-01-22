@@ -44,11 +44,13 @@ public class ImplemPortail implements Portail {
 
 		this.algoRecherche = algo;
 		tableAlgos.put(nom, algo);
-		/*
 		
+		this.algoRecherche = new RechercheSynchroneMultiTaches("recherche sync multi");
+
 		algo = new RechercheSynchroneMultiTaches("recherche sync multi");
 		nom = algo.nom();
 		tableAlgos.put(nom, algo);
+		/*
 		algo = new RechercheSynchroneStreamParallele("recherche sync stream 8");
 		nom = algo.nom();
 		tableAlgos.put(nom, algo);
