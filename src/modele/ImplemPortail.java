@@ -59,6 +59,11 @@ public class ImplemPortail implements Portail {
 		nom = algo.nom();
 		tableAlgos.put(nom, algo);
 
+		this.algoRecherche = new RechercheAsynchroneMultiTaches("recherche async multi");
+		algo = algoRecherche;
+		nom = algo.nom();
+		tableAlgos.put(nom, algo);
+
 		this.algoRecherche = new RechercheAsynchroneStreamParallele("recherche async stream 8");
 		algo = this.algoRecherche;
 		nom = algo.nom();
