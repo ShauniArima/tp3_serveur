@@ -179,3 +179,32 @@
 	<titre>Services9.0</titre>
 </livre>
 ```
+
+## Client et tests
+Pour des raisons de simplicité, nous avons créé le client dans un package 'client' plutôt que de créer un nouveau projet.
+
+Pour effectuer un test, procéder comme suit :
+- Exécuter serveur.LancementDixArchives
+- Exécuter serveur.LancementPortail
+- Exécuter client.ClientTest
+
+Voici un résultat type (les temps d'exécutions varient d'un test à l'autre à l'autre, mais l'ordre de grandeur et le classement reste le même)
+- recherche sync seq took 7,545000 seconds to execute 
+- recherche sync multi took 0,106000 seconds to execute 
+- recherche sync stream took 1,489000 seconds to execute 
+- recherche sync stream rx took 7,578000 seconds to execute 
+- recherche async seq took 1,549000 seconds to execute 
+- recherche async multi took 0,278000 seconds to execute 
+- recherche async stream 8 took 1,985000 seconds to execute 
+- recherche async stream rx took 7,535000 seconds to execute
+
+On constate d'une part que les versions synchrones prennent en générale moins de temps que les excutions asychrones.
+Cela s'explique par le faible volume de données à traiter.
+
+On constate que quelque soit le mode d'exécution, la recherche multi-threadée est la plus rapide.
+
+La recherche séquentielle semble être la seule à profiter de l'exécution asynchrone.
+
+Ces résultats varient en fonction de la configuration matérielle. A titre d'information,
+les résultats présentés ci-dessus ont été obtenus en exécutant le client et le serveur sur une seule machine équipée d'un CPU
+Intel i5 7300K avec 4 coeurs cadensés à 2,50 GHz.

@@ -38,6 +38,7 @@ public class ImplemPortail implements Portail {
 		this.algoRecherche = new RechercheSynchroneSequentielle("recherche sync seq");
 		AlgorithmeRecherche algo = this.algoRecherche;
 		NomAlgorithme nom = this.algoRecherche.nom();
+		tableAlgos.put(nom, algo);
 
 		this.algoRecherche = new RechercheSynchroneMultiTaches("recherche sync multi");
 		algo = this.algoRecherche;
