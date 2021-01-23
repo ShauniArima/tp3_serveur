@@ -1,5 +1,10 @@
 # TP3
 
+Auteurs :
+- Quentin GROSMANGIN
+- Ander FRIOU
+- Maxime GRATENS
+
 ## Bibliotheque
 
 ```java
