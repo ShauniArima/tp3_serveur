@@ -1,4 +1,6 @@
-# Bibliotheque
+# TP3
+
+## Bibliotheque
 
 ```java
 - Repertoire {
@@ -89,7 +91,7 @@
 }
 ```
 
-# Portail
+## Portail
 
 ```java
 - Repertoire {
@@ -160,4 +162,20 @@
 	// - code : 500 vide
 	// - code : 204 vide
 	void changerAlgorithmeRecherche(NomAlgorithme algo);
+```
+
+## Exemples de schemas
+
+### Nom algorithme
+
+```xml
+<algo nom="mon algo magnifique"/>
+```
+
+### Livre
+
+```xml
+<livre>
+	<titre>Services9.0</titre>
+</livre>
 ```
